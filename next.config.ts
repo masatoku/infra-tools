@@ -21,7 +21,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
       "style-src 'self' 'unsafe-inline'",
-      "connect-src 'self' https://dns.google https://vitals.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com",
+      "connect-src 'self' https://dns.google https://vitals.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com https://ipinfo.io",
       "img-src 'self' data: https://www.google-analytics.com",
       "font-src 'self'",
       "frame-ancestors 'none'",

@@ -7,15 +7,17 @@ import "./globals.css";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 
 export const metadata: Metadata = {
-  title: "Infra Tools",
-  description: "インフラエンジニア向け便利ツール集",
+  title: { default: "Infra Tools", template: "%s | Infra Tools" },
+  description: "インフラエンジニア向け便利ツール集。DKIM/SPF/DMARC確認、CIDR計算、JWT解析、Epoch変換など。全処理はブラウザ内で完結。",
+  keywords: ["インフラ", "DNS", "DKIM", "SPF", "DMARC", "CIDR", "JWT", "Base64", "chmod", "エンジニア"],
+  openGraph: {
+    title: "Infra Tools",
+    description: "インフラエンジニア向け便利ツール集",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ja" className="h-full">
       <body className="min-h-full flex flex-col">
@@ -34,7 +36,7 @@ export default function RootLayout({
           <Link href="/" className="text-[#38bdf8] font-bold text-lg tracking-tight hover:text-[#7dd3fc]">
             ⚙ Infra Tools
           </Link>
-          <span className="text-[#64748b] text-sm">インフラエンジニア向け便利ツール集</span>
+          <span className="text-[#64748b] text-sm hidden sm:block">インフラエンジニア向け便利ツール集</span>
         </header>
         <main className="flex-1">{children}</main>
         <Analytics />
