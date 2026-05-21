@@ -9,11 +9,25 @@ const tools = [
     tags: ["DKIM", "SPF", "DMARC", "DNS"],
   },
   {
+    href: "/tools/mx",
+    icon: "📬",
+    title: "MX レコードチェッカー",
+    description: "メール受信サーバーのMXレコードとSPFを確認します",
+    tags: ["MX", "DNS", "メール"],
+  },
+  {
     href: "/tools/cidr",
     icon: "🌐",
     title: "CIDR / サブネット計算機",
     description: "IPアドレスとCIDR表記からネットワーク情報を計算します",
     tags: ["CIDR", "Subnet", "IPv4"],
+  },
+  {
+    href: "/tools/chmod",
+    icon: "🔒",
+    title: "chmod 計算機",
+    description: "8進数・シンボル・チェックボックスでLinux権限を相互変換します",
+    tags: ["chmod", "Linux", "権限"],
   },
   {
     href: "/tools/epoch",
@@ -30,6 +44,13 @@ const tools = [
     tags: ["Base64", "Encode", "Decode"],
   },
   {
+    href: "/tools/url",
+    icon: "🔗",
+    title: "URL エンコード / デコード",
+    description: "URLエンコード・デコードとクエリ文字列の解析・生成を行います",
+    tags: ["URL", "Encode", "Query"],
+  },
+  {
     href: "/tools/jwt",
     icon: "🔑",
     title: "JWT デコーダー",
@@ -37,11 +58,32 @@ const tools = [
     tags: ["JWT", "Token", "Auth"],
   },
   {
+    href: "/tools/hash",
+    icon: "🔐",
+    title: "ハッシュ計算",
+    description: "SHA-1・SHA-256・SHA-384・SHA-512ハッシュを計算します（ブラウザ内処理）",
+    tags: ["SHA-256", "Hash", "Crypto"],
+  },
+  {
+    href: "/tools/json",
+    icon: "📋",
+    title: "JSON フォーマッター",
+    description: "JSONの整形・圧縮・バリデーションを行います",
+    tags: ["JSON", "Format", "Validate"],
+  },
+  {
     href: "/tools/cron",
     icon: "🕐",
     title: "Cron式パーサー",
     description: "Cron式の意味を解説し、次回実行日時を表示します",
     tags: ["Cron", "Schedule"],
+  },
+  {
+    href: "/tools/uuid",
+    icon: "🆔",
+    title: "UUID ジェネレーター",
+    description: "UUID v4（ランダム）・v7（タイムスタンプ順）を一括生成します",
+    tags: ["UUID", "v4", "v7"],
   },
 ];
 
