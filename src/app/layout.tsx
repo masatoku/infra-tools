@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="h-full">
-      <head>
+      <body className="min-h-full flex flex-col">
         {GA_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
@@ -30,8 +30,6 @@ export default function RootLayout({
             `}</Script>
           </>
         )}
-      </head>
-      <body className="min-h-full flex flex-col">
         <header className="border-b border-[#2a2d3a] px-6 py-3 flex items-center gap-4">
           <Link href="/" className="text-[#38bdf8] font-bold text-lg tracking-tight hover:text-[#7dd3fc]">
             ⚙ Infra Tools
