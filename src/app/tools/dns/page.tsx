@@ -73,6 +73,18 @@ export default function DnsPage() {
   async function check() {
     const d = domain.trim().toLowerCase();
     if (!d) return;
+
+    // ドメイン名のバリデーション
+    if (d.length > 253) { setError("ドメイン名が長すぎます（253文字以内）"); return; }
+    if (!/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/.test(d)) {
+      setError("無効なドメイン名です"); return;
+    }
+    const sel = selector.trim();
+    if (sel.length > 63) { setError("セレクター名が長すぎます（63文字以内）"); return; }
+    if (!/^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(sel)) {
+      setError("無効なセレクター名です（英数字とハイフンのみ）"); return;
+    }
+
     setLoading(true);
     setError("");
     setResults([]);

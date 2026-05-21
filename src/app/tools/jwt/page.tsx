@@ -12,7 +12,9 @@ type JwtParts = {
 };
 
 function decodeJwt(token: string): JwtParts {
-  const parts = token.trim().split(".");
+  const trimmed = token.trim();
+  if (trimmed.length > 8192) throw new Error("トークンが長すぎます");
+  const parts = trimmed.split(".");
   if (parts.length !== 3) throw new Error("JWTは3つのパートで構成される必要があります（header.payload.signature）");
 
   function decodepart(part: string): Record<string, unknown> {
@@ -20,7 +22,12 @@ function decodeJwt(token: string): JwtParts {
     const binary = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
     const bytes = new Uint8Array(binary.length);
     for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-    return JSON.parse(new TextDecoder().decode(bytes));
+    const parsed = JSON.parse(new TextDecoder().decode(bytes));
+    // プロトタイプ汚染を防ぐためにプレーンオブジェクトとして返す
+    if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+      throw new Error("無効なJWTペイロードです");
+    }
+    return Object.assign(Object.create(null), parsed) as Record<string, unknown>;
   }
 
   const header = decodepart(parts[0]);
