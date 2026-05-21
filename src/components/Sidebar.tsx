@@ -35,7 +35,7 @@ export default function Sidebar() {
             className={`sidebar-item${isActive ? " sidebar-item-active" : ""}`}
             title={tool.short}
           >
-            <span className="text-base leading-none">{tool.icon}</span>
+            <span className="text-xl leading-none">{tool.icon}</span>
             <span className="sidebar-label">{tool.short}</span>
           </Link>
         );

@@ -85,14 +85,22 @@ body {
 .sidebar-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 12px;
+  padding: 12px 0;
   font-size: 11px;
   color: #64748b;
   border-left: 2px solid transparent;
   transition: color 0.15s, background 0.15s, border-color 0.15s;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .sidebar-item {
+    justify-content: flex-start;
+    padding: 10px 12px;
+  }
 }
 
 .sidebar-item:hover {
