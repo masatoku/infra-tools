@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
 
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <span className="text-[#64748b] text-sm hidden sm:block">インフラエンジニア向け便利ツール集</span>
         </header>
         <main className="flex-1">{children}</main>
-        <Analytics />
         <footer className="border-t border-[#2a2d3a] px-6 py-3 text-[#64748b] text-xs text-center">
           All processing is done client-side. No data is sent to any server.
         </footer>
